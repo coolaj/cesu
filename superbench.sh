@@ -175,19 +175,19 @@ print_speedtest() {
 	printf "%-18s%-18s%-20s%-12s\n" " Node Name" "Upload Speed" "Download Speed" "Latency" | tee -a $log
     speed_test '' 'Speedtest.net'
     speed_fast_com
-    speed_test '27377' 'Beijing 5G   CT'
-    speed_test '26352' 'Nanjing 5G   CT'
-    speed_test '17145' 'Hefei 5G     CT'
-	speed_test '27594' 'Guangzhou 5G CT'
-	speed_test '27154' 'TianJin 5G   CU'
-	speed_test '24447' 'Shanghai 5G  CU'
-	speed_test '26678' 'Guangzhou 5G CU'
-	speed_test '17184' 'Tianjin 5G   CM'
-	speed_test '26850' 'Wuxi 5G      CM'
-	speed_test '27249' 'Nanjing 5G   CM'
-	speed_test '26404' 'Hefei 5G     CM'
-	speed_test '28491' 'Changsha 5G  CM'
-
+    speed_test '27377' '北京 5G   电信  '
+    speed_test '26352' '南京 5G   电信  '
+    speed_test '17145' '合肥 5G   电信  '
+	speed_test '27594' '广州 5G   电信  '
+	speed_test '27154' '天津 5G   电信  '
+	speed_test '24447' '上海 5G   电信  '
+	speed_test '26678' '广州 5G   联通  '
+	speed_test '17184' '天津 5G   移动  '
+	speed_test '26850' '无锡 5G   移动  '
+	speed_test '27249' '南京 5G   移动  '
+	speed_test '26404' '合肥 5G   移动  '
+	speed_test '28491' '长沙 5G   移动  '
+	 
 	rm -rf speedtest*
 }
 
@@ -195,9 +195,9 @@ print_speedtest_fast() {
 	printf "%-18s%-18s%-20s%-12s\n" " Node Name" "Upload Speed" "Download Speed" "Latency" | tee -a $log
     speed_test '' 'Speedtest.net'
     speed_fast_com
-    speed_test '27377' 'Beijing 5G   CT'
-	speed_test '24447' 'ShangHai 5G  CU'
-	speed_test '27249' 'Nanjing 5G   CM'
+    speed_test '27377' '北京 5G   电信  '
+	speed_test '24447' '上海 5G   联通  '
+	speed_test '27249' '南京 5G   移动  '
 	 
 	rm -rf speedtest*
 }
@@ -284,9 +284,9 @@ ip_info4(){
 	fi
 
 	echo -e " ASN & ISP            : ${SKYBLUE}$asn, $isp${PLAIN}" | tee -a $log
-	echo -e " Organization         : ${YELLOW}$org${PLAIN}" | tee -a $log
-	echo -e " Location             : ${SKYBLUE}$city, ${YELLOW}$country / $countryCode${PLAIN}" | tee -a $log
-	echo -e " Region               : ${SKYBLUE}$region${PLAIN}" | tee -a $log
+	echo -e " 运营商	              : ${YELLOW}$org${PLAIN}" | tee -a $log
+	echo -e " 地理位置             : ${SKYBLUE}$city, ${YELLOW}$country / $countryCode${PLAIN}" | tee -a $log
+	echo -e " 地区                 : ${SKYBLUE}$region${PLAIN}" | tee -a $log
 
 	rm -rf tools.py
 	rm -rf ip_json.json
@@ -406,17 +406,17 @@ print_io() {
 }
 
 print_system_info() {
-	echo -e " CPU Model            : ${SKYBLUE}$cname${PLAIN}" | tee -a $log
-	echo -e " CPU Cores            : ${YELLOW}$cores Cores ${SKYBLUE}$freq MHz $arch${PLAIN}" | tee -a $log
-	echo -e " CPU Cache            : ${SKYBLUE}$corescache ${PLAIN}" | tee -a $log
-	echo -e " OS                   : ${SKYBLUE}$opsy ($lbit Bit) ${YELLOW}$virtual${PLAIN}" | tee -a $log
-	echo -e " Kernel               : ${SKYBLUE}$kern${PLAIN}" | tee -a $log
-	echo -e " Total Space          : ${SKYBLUE}$disk_used_size GB / ${YELLOW}$disk_total_size GB ${PLAIN}" | tee -a $log
-	echo -e " Total RAM            : ${SKYBLUE}$uram MB / ${YELLOW}$tram MB ${SKYBLUE}($bram MB Buff)${PLAIN}" | tee -a $log
-	echo -e " Total SWAP           : ${SKYBLUE}$uswap MB / $swap MB${PLAIN}" | tee -a $log
-	echo -e " Uptime               : ${SKYBLUE}$up${PLAIN}" | tee -a $log
-	echo -e " Load Average         : ${SKYBLUE}$load${PLAIN}" | tee -a $log
-	echo -e " TCP CC               : ${YELLOW}$tcpctrl${PLAIN}" | tee -a $log
+	echo -e " CPU 型号             : ${SKYBLUE}$cname${PLAIN}" | tee -a $log
+	echo -e " CPU 内核             : ${YELLOW}$cores Cores ${SKYBLUE}@ $freq MHz $arch${PLAIN}" | tee -a $log
+	echo -e " CPU 缓存             : ${SKYBLUE}$corescache ${PLAIN}" | tee -a $log
+	echo -e " 操作系统             : ${SKYBLUE}$opsy ($lbit Bit) ${YELLOW}$virtual${PLAIN}" | tee -a $log
+	echo -e " 内核版本             : ${SKYBLUE}$kern${PLAIN}" | tee -a $log
+	echo -e " 硬盘大小             : ${SKYBLUE}$disk_used_size GB / ${YELLOW}$disk_total_size GB ${PLAIN}" | tee -a $log
+	echo -e " 内存大小             : ${SKYBLUE}$uram MB / ${YELLOW}$tram MB ${SKYBLUE}($bram MB Buff)${PLAIN}" | tee -a $log
+	echo -e " 缓存大小             : ${SKYBLUE}$uswap MB / $swap MB${PLAIN}" | tee -a $log
+	echo -e " 开机时间             : ${SKYBLUE}$up${PLAIN}" | tee -a $log
+	echo -e " 平均负载值           : ${SKYBLUE}$load${PLAIN}" | tee -a $log
+	echo -e " 加速模块             : ${YELLOW}$tcpctrl${PLAIN}" | tee -a $log
 }
 
 print_end_time() {
